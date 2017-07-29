@@ -1,1 +1,1 @@
-test content for git tutorial sample
+test content for git tutorial

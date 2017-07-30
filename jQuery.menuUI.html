@@ -3,181 +3,10 @@
 <head>
 <meta charset="ISO-8859-1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Insert title here</title>
+<title>jQuery.menuUI</title>
 <link rel="stylesheet" href="css/bootstrap.min.css">
 <link rel="stylesheet" href="css/font-awesome.css">
-<style>
-body, html {
-	height: 100%;
-}
-
-/* remove outer padding */
-.main .row {
-	padding: 0px;
-	margin: 0px;
-}
-
-/*Remove rounded coners*/
-
-nav.sidebar.navbar {
-	border-radius: 0px;
-}
-
-nav.sidebar, .main {
-	-webkit-transition: margin 200ms ease-out;
-	-moz-transition: margin 200ms ease-out;
-	-o-transition: margin 200ms ease-out;
-	transition: margin 200ms ease-out;
-}
-
-/* Add gap to nav and right windows.*/
-.main {
-	padding: 10px 10px 0 10px;
-}
-
-/* .....NavBar: Icon only with coloring/layout.....*/
-
-/*small/medium side display*/
-@media (min-width: 768px) {
-	/*Allow main to be next to Nav*/
-	.main {
-		position: absolute;
-		width: calc(100% - 40px); /*keeps 100% minus nav size*/
-		margin-left: 40px;
-		float: right;
-	}
-
-	/*lets nav bar to be showed on mouseover*/
-	nav.sidebar:hover + .main {
-		margin-left: 200px;
-	}
-
-	/*Center Brand*/
-	nav.sidebar.navbar.sidebar > .container .navbar-brand,
-	.navbar > .container-fluid .navbar-brand {
-		margin-left: 0px;
-	}
-	/*Center Brand*/
-	nav.sidebar .navbar-brand, nav.sidebar .navbar-header {
-		text-align: center;
-		width: 100%;
-		margin-left: 0px;
-	}
-
-	/*Center Icons*/
-	nav.sidebar a {
-		padding-right: 13px;
-	}
-
-	/*adds border top to first nav box */
-	nav.sidebar .navbar-nav > li:first-child {
-		/*border-top: 1px #e5e5e5 solid;*/
-	}
-
-	/*adds border to bottom nav boxes*/
-	nav.sidebar .navbar-nav > li {
-		/*border-bottom: 1px #e5e5e5 solid;*/
-	}
-
-	/* Colors/style dropdown box*/
-	nav.sidebar .navbar-nav .open .dropdown-menu {
-		position: static;
-		float: none;
-		width: auto;
-		margin-top: 0;
-		background-color: transparent;
-		border: 0;
-		-webkit-box-shadow: none;
-		box-shadow: none;
-	}
-
-	/*allows nav box to use 100% width*/
-	nav.sidebar .navbar-collapse, nav.sidebar .container-fluid {
-		padding: 0 0px 0 0px;
-	}
-
-	/*colors dropdown box text */
-	.navbar-default .navbar-nav .open .dropdown-menu > li > a {
-		color: #777;
-	}
-
-	/*gives sidebar width/height*/
-	nav.sidebar {
-		width: 200px;
-		height: 100%;
-		margin-left: -160px;
-		float: left;
-		z-index: 8000;
-		margin-bottom: 0px;
-	}
-
-	/*give sidebar 100% width;*/
-	nav.sidebar li {
-		width: 100%;
-	}
-
-	/* Move nav to full on mouse over*/
-	nav.sidebar:hover {
-		margin-left: 0px;
-	}
-	/*for hiden things when navbar hidden*/
-	.forAnimate {
-		opacity: 0;
-	}
-}
-
-/* .....NavBar: Fully showing nav bar..... */
-
-@media (min-width: 2500px) {
-	/*Allow main to be next to Nav*/
-	.main {
-		width: calc(100% - 200px); /*keeps 100% minus nav size*/
-		margin-left: 200px;
-	}
-
-	/*Show all nav*/
-	nav.sidebar {
-		margin-left: 0px;
-		float: left;
-	}
-	/*Show hidden items on nav*/
-	nav.sidebar .forAnimate {
-		opacity: 1;
-	}
-}
-
-nav.sidebar .navbar-nav .open .dropdown-menu > li > a:hover,
-nav.sidebar .navbar-nav .open .dropdown-menu > li > a:focus {
-	color: #CCC;
-	background-color: transparent;
-}
-
-nav:hover .forAnimate {
-	opacity: 1;
-}
-section {
-	padding-left: 15px;
-}
-
-nav.sidebar .navbar-header-top:hover{
-	margin-left: -160px;
-}
-
-.navbar-fixed-top{
-	z-index: 8001;
-}
-
-.navbar-header-top{
-	position: fixed;
-}
-
-@media (max-width: 768px) {
-	.navbar-fixed-top{
-		display: none;
-	}
-}
-</style>
-
+<link rel="stylesheet" href="css/jQuery.menuUI.css">
 </head>
 <body >
 <!-- 	<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -193,7 +22,7 @@ nav.sidebar .navbar-header-top:hover{
 			</div>
 		</div>
 	</nav>
-	
+
 	<nav class="navbar navbar-default sidebar" role="navigation">
 		<div class="container-fluid">
 			<div class="navbar-header">
@@ -227,10 +56,10 @@ nav.sidebar .navbar-header-top:hover{
 		</div>
 	</nav>
 	 -->
-	<div id="menuUI">MENU</div>
+	<nav id="menuUI"></nav>
 	<div class="main container-fluid">
 			<div class="col-xs-12">
-				
+
 			<hr/>
 				Lorem ipsum dolor sit amet, consectetur	adipiscing elit. Donec blandit pharetra sollicitudin. Vestibulum 				posuere condimentum metus, id interdum ligula venenatis consequat. 				Ut ultricies eget ante eget pulvinar. Mauris a neque dictum, 				porttitor justo at, blandit neque. Nam placerat pretium risus ut 				vestibulum. Vivamus volutpat velit metus, sed facilisis orci finibus 				et. Aenean mollis ante lacus, et cursus ligula laoreet eget. In id 				risus vel risus commodo pretium. Ut cursus luctus posuere. Donec 				consequat erat sit amet eros tempor pulvinar. Donec dignissim 				blandit varius. Nulla blandit, orci nec tincidunt bibendum, lorem 				augue consectetur lorem, in vehicula metus nunc id libero. Ut 				sollicitudin vulputate justo, ut gravida eros dictum ultricies. 				Suspendisse venenatis pulvinar felis et eleifend. Nullam suscipit 				lacus et neque luctus, at dapibus odio ultricies. In eget augue 				massa. Curabitur fermentum ipsum eu nunc finibus, in ultrices tellus 				consequat. Curabitur tincidunt sapien ipsum. Maecenas laoreet metus 				id vulputate tincidunt. Sed dapibus mi laoreet neque suscipit 				tincidunt. Duis eu eros at dui semper posuere sed ac libero. Nullam 				cursus, risus nec egestas pellentesque, urna felis dictum ante, 				vitae blandit ligula felis quis nisl. Donec tincidunt mauris sit 				amet lectus pellentesque, vel aliquet nisi consectetur. Nam in magna 				congue, vehicula purus ac, auctor massa. Ut imperdiet nulla mauris, 				a tempus sem vestibulum at. Nam sodales nisl non turpis hendrerit 				ullamcorper. Sed non auctor metus, et iaculis magna. Fusce nec 				sapien nunc. Sed efficitur tellus vitae lectus mollis, a dictum 				neque fringilla. Phasellus justo neque, vestibulum ut nisi in, 				euismod condimentum nisl. Sed varius, justo fermentum posuere 				tempus, risus dui tristique orci, vitae ultricies odio dolor quis 				erat. Pellentesque non felis vel augue finibus vestibulum non nec 				ipsum. Sed pharetra lorem arcu, vitae faucibus erat commodo id. Duis 				quis ex nunc. Nullam eget rutrum sem. Etiam aliquam interdum tempus. 				Maecenas finibus malesuada eros id finibus. Maecenas vehicula, nisl 				non porta tempus, nulla magna interdum libero, ac iaculis nunc leo 				et tortor. Nulla eros lorem, aliquet ut diam sed, tincidunt maximus 				lectus. Nullam in iaculis massa. Fusce nibh eros, cursus non quam 				pellentesque, tincidunt pellentesque dui. Aenean imperdiet erat et 				neque convallis lacinia. Fusce tempor malesuada pellentesque. Sed 				imperdiet non orci quis semper. Vivamus quis nunc odio. Etiam 				sodales et enim in gravida. In eleifend nisl eget massa vehicula, 				sit amet bibendum nisl fringilla. Etiam sem leo, lacinia vel blandit 				quis, tincidunt non purus. Quisque imperdiet non arcu at egestas. 				Mauris sollicitudin, metus tincidunt dapibus tempus, magna enim 				dictum dui, sed luctus dolor dolor in leo. Aenean aliquam iaculis 				purus ac euismod. Nunc aliquet tincidunt ullamcorper. Donec 				ullamcorper justo nec dolor pharetra vulputate. Donec mollis quam et 				enim consequat sodales. Proin nunc erat, consequat vehicula tempor 				sit amet, laoreet vel massa. Lorem ipsum dolor sit amet, consectetur 				adipiscing elit. Donec blandit pharetra sollicitudin. Vestibulum 				posuere condimentum metus, id interdum ligula venenatis consequat. 				Ut ultricies eget ante eget pulvinar. Mauris a neque dictum, 				porttitor justo at, blandit neque. Nam placerat pretium risus ut 				vestibulum. Vivamus volutpat velit metus, sed facilisis orci finibus 				et. Aenean mollis ante lacus, et cursus ligula laoreet eget. In id 				risus vel risus commodo pretium. Ut cursus luctus posuere. Donec 				consequat erat sit amet eros tempor pulvinar. Donec dignissim 				blandit varius. Nulla blandit, orci nec tincidunt bibendum, lorem 				augue consectetur lorem, in vehicula metus nunc id libero. Ut 				sollicitudin vulputate justo, ut gravida eros dictum ultricies. 				Suspendisse venenatis pulvinar felis et eleifend. Nullam suscipit 				lacus et neque luctus, at dapibus odio ultricies. In eget augue 				massa. Curabitur fermentum ipsum eu nunc finibus, in ultrices tellus 				consequat. Curabitur tincidunt sapien ipsum. Maecenas laoreet metus 				id vulputate tincidunt. Sed dapibus mi laoreet neque suscipit 				tincidunt. Duis eu eros at dui semper posuere sed ac libero. Nullam 				cursus, risus nec egestas pellentesque, urna felis dictum ante, 				vitae blandit ligula felis quis nisl. Donec tincidunt mauris sit 				amet lectus pellentesque, vel aliquet nisi consectetur. Nam in magna 				congue, vehicula purus ac, auctor massa. Ut imperdiet nulla mauris, 				a tempus sem vestibulum at. Nam sodales nisl non turpis hendrerit 				ullamcorper. Sed non auctor metus, et iaculis magna. Fusce nec 				sapien nunc. Sed efficitur tellus vitae lectus mollis, a dictum 				neque fringilla. Phasellus justo neque, vestibulum ut nisi in, 				euismod condimentum nisl. Sed varius, justo fermentum posuere 				tempus, risus dui tristique orci, vitae ultricies odio dolor quis 				erat. Pellentesque non felis vel augue finibus vestibulum non nec 				ipsum. Sed pharetra lorem arcu, vitae faucibus erat commodo id. Duis 				quis ex nunc. Nullam eget rutrum sem. Etiam aliquam interdum tempus. 				Maecenas finibus malesuada eros id finibus. Maecenas vehicula, nisl 				non porta tempus, nulla magna interdum libero, ac iaculis nunc leo 				et tortor. Nulla eros lorem, aliquet ut diam sed, tincidunt maximus 				lectus. Nullam in iaculis massa. Fusce nibh eros, cursus non quam 				pellentesque, tincidunt pellentesque dui. Aenean imperdiet erat et 				neque convallis lacinia. Fusce tempor malesuada pellentesque. Sed 				imperdiet non orci quis semper. Vivamus quis nunc odio. Etiam 				sodales et enim in gravida. In eleifend nisl eget massa vehicula, 				sit amet bibendum nisl fringilla. Etiam sem leo, lacinia vel blandit 				quis, tincidunt non purus. Quisque imperdiet non arcu at egestas. 				Mauris sollicitudin, metus tincidunt dapibus tempus, magna enim 				dictum dui, sed luctus dolor dolor in leo. Aenean aliquam iaculis 				purus ac euismod. Nunc aliquet tincidunt ullamcorper. Donec 				ullamcorper justo nec dolor pharetra vulputate. Donec mollis quam et 				enim consequat sodales. Proin nunc erat, consequat vehicula tempor 				sit amet, laoreet vel massa. Lorem ipsum dolor sit amet, consectetur 				adipiscing elit. Donec blandit pharetra sollicitudin. Vestibulum 				posuere condimentum metus, id interdum ligula venenatis consequat. 				Ut ultricies eget ante eget pulvinar. Mauris a neque dictum, 				porttitor justo at, blandit neque. Nam placerat pretium risus ut 				vestibulum. Vivamus volutpat velit metus, sed facilisis orci finibus 				et. Aenean mollis ante lacus, et cursus ligula laoreet eget. In id 				risus vel risus commodo pretium. Ut cursus luctus posuere. Donec 				consequat erat sit amet eros tempor pulvinar. Donec dignissim 				blandit varius. Nulla blandit, orci nec tincidunt bibendum, lorem 				augue consectetur lorem, in vehicula metus nunc id libero. Ut 				sollicitudin vulputate justo, ut gravida eros dictum ultricies. 				Suspendisse venenatis pulvinar felis et eleifend. Nullam suscipit 				lacus et neque luctus, at dapibus odio ultricies. In eget augue 				massa. Curabitur fermentum ipsum eu nunc finibus, in ultrices tellus 				consequat. Curabitur tincidunt sapien ipsum. Maecenas laoreet metus 				id vulputate tincidunt. Sed dapibus mi laoreet neque suscipit 				tincidunt. Duis eu eros at dui semper posuere sed ac libero. Nullam 				cursus, risus nec egestas pellentesque, urna felis dictum ante, 				vitae blandit ligula felis quis nisl. Donec tincidunt mauris sit 				amet lectus pellentesque, vel aliquet nisi consectetur. Nam in magna 				congue, vehicula purus ac, auctor massa. Ut imperdiet nulla mauris, 				a tempus sem vestibulum at. Nam sodales nisl non turpis hendrerit 				ullamcorper. Sed non auctor metus, et iaculis magna. Fusce nec 				sapien nunc. Sed efficitur tellus vitae lectus mollis, a dictum 				neque fringilla. Phasellus justo neque, vestibulum ut nisi in, 				euismod condimentum nisl. Sed varius, justo fermentum posuere 				tempus, risus dui tristique orci, vitae ultricies odio dolor quis 				erat. Pellentesque non felis vel augue finibus vestibulum non nec 				ipsum. Sed pharetra lorem arcu, vitae faucibus erat commodo id. Duis 				quis ex nunc. Nullam eget rutrum sem. Etiam aliquam interdum tempus. 				Maecenas finibus malesuada eros id finibus. Maecenas vehicula, nisl 				non porta tempus, nulla magna interdum libero, ac iaculis nunc leo 				et tortor. Nulla eros lorem, aliquet ut diam sed, tincidunt maximus 				lectus. Nullam in iaculis massa. Fusce nibh eros, cursus non quam 				pellentesque, tincidunt pellentesque dui. Aenean imperdiet erat et 				neque convallis lacinia. Fusce tempor malesuada pellentesque. Sed 				imperdiet non orci quis semper. Vivamus quis nunc odio. Etiam 				sodales et enim in gravida. In eleifend nisl eget massa vehicula, 				sit amet bibendum nisl fringilla. Etiam sem leo, lacinia vel blandit 				quis, tincidunt non purus. Quisque imperdiet non arcu at egestas. 				Mauris sollicitudin, metus tincidunt dapibus tempus, magna enim 				dictum dui, sed luctus dolor dolor in leo. Aenean aliquam iaculis 				purus ac euismod. Nunc aliquet tincidunt ullamcorper. Donec 				ullamcorper justo nec dolor pharetra vulputate. Donec mollis quam et 				enim consequat sodales. Proin nunc erat, consequat vehicula temporsit amet, laoreet vel massa.</div>
 		</div>
@@ -252,6 +81,35 @@ nav.sidebar .navbar-header-top:hover{
 		}
 	}
 	$(document).ready(function() {
+		var json = {brand : 'Menu UI',
+				menu: [
+					{
+						id: 'home',
+						value: 'Home',
+						icon: 'glyphicon glyphicon-home'
+					},{
+						id: 'profile',
+						value: 'Profile',
+						icon: 'glyphicon glyphicon-user'
+					},{
+						id: 'message',
+						value: 'Message',
+						icon: 'glyphicon glyphicon-envelope'
+					},{
+						id: 'setting',
+						value: 'Setting',
+						icon: 'glyphicon glyphicon-cog'
+					}
+				]
+			};
+
+		$( "#menuUI" ).menuUI(json, {debug: true});
+
+
+
+
+
+
 		htmlbodyHeightUpdate();
 		$(window).resize(function() {
 			htmlbodyHeightUpdate();
@@ -262,8 +120,7 @@ nav.sidebar .navbar-header-top:hover{
 		});
 	});
 
-	$( "#menuUI" ).menuUI({background:'red'});
-	//$( "#menuUI" ).menuUI();
+
 
 	</script>
 </body>

@@ -8,6 +8,7 @@
 				icon: 'glyphicon glyphicon-home'
 			}]},
 			defaults : {
+				navBarHorizontal: true,
 				theme: {nav: 'navbar navbar-default navbar-fixed-top'},
 				action: 'click',
 				debug: false
@@ -36,9 +37,8 @@
 			return subMenu.replace('$submenu', subMenuItems || '');
 		};
 		var $self = $(this);
-
 		var navbarHor = menuUI.template.navbarHor, navbarVer = menuUI.template.navbarVer, menuItems = '';
-		navbarHor = navbarHor.replace("$brand", jsonData.brand);
+		navbarHor = navbarHor.replace("$brand", jsonData.brand || '');
 		for (var liData of jsonData.menu) {
 			var menuItem = '';
 			liData.submenu ? (
@@ -48,11 +48,11 @@
 			);
 			menuItems += menuItem;
 		}
-		navbarVer = navbarVer.replace("$menuUI", menuItems || '');
+		navbarVer = navbarVer.replace("$menuUI", menuItems || '').replace("$brand", jsonData.brand || '');
 		//debug(navbarVer, 'menu items');
 
 		$self.addClass('navbar navbar-default sidebar').attr('role', 'navigation');
-		$self.prepend(navbarHor);
+		option.navBarHorizontal ? $self.prepend(navbarHor) : "";
 		$self.append(navbarVer);
 		debug($self, "final element");
 		return this;

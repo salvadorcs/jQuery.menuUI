@@ -102,7 +102,7 @@ nav.sidebar, .main {
 	}
 
 	/*give sidebar 100% width;*/
-	nav.sidebar li {
+	nav.sidebar ul, nav.sidebar li {
 		width: 100%;
 	}
 
@@ -159,6 +159,16 @@ nav.sidebar .navbar-header-top:hover{
 
 .navbar-header-top{
 	position: fixed;
+}
+
+.navbar a{
+	cursor: pointer;
+}
+
+.navbar a[disabled="disabled"]{
+	cursor: not-allowed;
+    opacity: 0.5;
+	filter: alpha(opacity=50);
 }
 
 @media (max-width: 768px) {

@@ -1,6 +1,6 @@
 (function( $ ) {
 	'use strict';
-	$.fn.menuUI = function(data, options) {
+	$.fn.menuUI = function(data, callBack, options) {
 		console.time("menuUI");
 		const menuUI = {
 			json: {brand : 'Brand', menu: [{
@@ -12,6 +12,8 @@
 				navBarHorizontal: true,
 				theme: {nav: 'navbar navbar-default navbar-fixed-top'},
 				action: 'click',
+				show: true,
+				disable: false,
 				debug: false
 			},
 			template: {
@@ -24,16 +26,29 @@
 		};
 		var option = $.extend({}, menuUI.defaults, options);
 		var jsonData = $.extend({}, menuUI.json, data);
-		var debug = function (i, str){option.debug ? console.log("debug : "+ str || '' +" : ", i) : console.log()};
+		var debug = function (i, str){option.debug ? console.log("debug : "+ str || '' +" : ", i) : doNothing()};
 		//debug(option);
 		//debug(jsonData);
+		var doNothing = function(){};
+		var setDisplay = function(item){
+			typeof item.show == 'undefined' ? item.show=option.show : doNothing() ;
+			//item.show ? debug(item.show, 'true') : debug(item.show, 'false') ;
+			return item;
+		};
+		var setDisabled = function(item){
+			typeof item.disable == 'undefined' ? item.disable = option.disable : doNothing();
+			return item;
+		};
 		var setSubMenu = function(subMenuData){
 			var subMenuItems = '';
 			var subMenu = menuUI.template.subMenu.replace('$id', subMenuData.id || '').replace('$value', subMenuData.value || '').replace('$icon', subMenuData.icon || '');
 			for (var liData of subMenuData.submenu) {
 				var subMenuItem = '';
+				liData = setDisplay(liData);
+				liData = setDisabled(liData);
 				subMenuItem = menuUI.template.subMenuItem.replace('$id', liData.id || '').replace('$value', liData.value || '');
-				subMenuItems +=subMenuItem;
+				liData.disable ? (subMenuItem = subMenuItem.replace('<a', '<a style="disabled" disabled="disabled" ')):("");
+				liData.show ? (subMenuItems +=subMenuItem) : "";
 			}
 			return subMenu.replace('$submenu', subMenuItems || '');
 		};
@@ -42,29 +57,54 @@
 		navbarHor = navbarHor.replace("$brand", jsonData.brand || '');
 		for (var liData of jsonData.menu) {
 			var menuItem = '';
-			liData.submenu ? (menuItem = setSubMenu(liData)) :
+			liData = setDisplay(liData);
+			liData = setDisabled(liData);
+			(liData.submenu && liData.submenu.length >0) ? (menuItem = setSubMenu(liData)) :
 				(menuItem = menuUI.template.menuItem.replace('$id', liData.id || '').replace('$value', liData.value || '').replace('$icon', liData.icon || ''));
-			menuItems += menuItem;
+			liData.disable ? (menuItem = menuItem.replace('<a', '<a style="disabled" disabled="disabled" ')):"";
+			liData.show ? (menuItems += menuItem) : "";
 		}
 		navbarVer = navbarVer.replace("$menuUI", menuItems || '').replace("$brand", jsonData.brand || '');
 		//debug(navbarVer, 'menu items');
-
-
 		/*
 		ADDING EVENT LISTENERS TO li > a
 		*/
 		$self.on( option.action, "li > a", function() {
 			debug(this, 'on click');
+			callBack(this.id);
 		});
-
 		/*
 		ADDING GENERATED ELEMS TO $self
 		*/
 		option.navBarHorizontal ? $self.before(navbarHor) : "";
-		$self.addClass('navbar navbar-default sidebar').attr('role', 'navigation')
+		$self.addClass('navbar navbar-default sidebar').attr('role', 'navigation');
 		$self.append(navbarVer);
 		debug($self, "final element");
 		console.timeEnd("menuUI");
+		/*
+		KEEPING THE MENU EXTENDED TO FULL PAGE ON EXPANDED AND COLLAPSED VIEW
+		*/
+		function htmlbodyHeightUpdate() {
+			var height3 = $(window).height();
+			var height1 = $(".nav").height() + 50;
+			var height2 = $(".main").height() || $(".main")[0].scrollHeight;
+			if (height2 > height3) {
+				$("html").height(Math.max(height1, height3, height2) + 10);
+				$("body").height(Math.max(height1, height3, height2) + 10);
+			} else {
+				$("html").height(Math.max(height1, height3, height2));
+				$("body").height(Math.max(height1, height3, height2));
+			}
+		}
+		htmlbodyHeightUpdate();
+		$(window).resize(function() {
+			htmlbodyHeightUpdate();
+		});
+		$(window).scroll(function() {
+			var height2 = $(".main").height();
+			htmlbodyHeightUpdate();
+		});
+
 		return this;
 	};
 

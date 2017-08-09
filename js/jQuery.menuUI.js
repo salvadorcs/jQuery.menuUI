@@ -1,4 +1,10 @@
-(function( $ ) {
+/*!
+ * jQuery.menuUI Plugin
+ * Requires jQuery v1.7.2 or later
+ * Copyright (c) 2017 Sathish CS
+ * Project repository: https://github.com/salvadorcs/jQuery.menuUI
+ */
+ (function( $ ) {
 	'use strict';
 	$.fn.menuUI = function(data, callBack, options) {
 		console.time("menuUI");

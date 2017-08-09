@@ -26,7 +26,7 @@ jQuery.menuUI/
 │   └── fonts\glyphicons-halflings-regular.woff2
 ├── js/
 │   ├── bootstrap.min.js
-│	├── jquery.min.js
+│   ├── jquery.min.js
 │   └── jQuery.menuUI.js
 └── jQuery.menuUI.html
 ```

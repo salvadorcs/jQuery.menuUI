@@ -36,7 +36,7 @@ jQuery.menuUI/
 * Bootstrap 3.0.0
 * jQuery 1.9.1
 
-##Usage
+## Usage
 * Import `jQuery.menuUI.js` and `jQuery.menuUI.css` in your `index.html`.
 * Add `<nav id="menuUI"></nav>` in `index.html` and initiate the menuUI call with `$( "#menuUI" ).menuUI(json, callBack);`
 * `callBack` is the fuction to be called when the action is performed on the menu items.
@@ -70,7 +70,7 @@ jQuery.menuUI/
 
 ## Creators
 
-** Sathish C**
+**Sathish C**
 
 * <https://github.com/salvadorcs>
 

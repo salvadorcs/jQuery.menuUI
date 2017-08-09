@@ -2,7 +2,7 @@
 	'use strict';
 	$.fn.menuUI = function(data, callBack, options) {
 		console.time("menuUI");
-		const menuUI = {
+		var menuUI = {
 			json: {brand : 'Brand', menu: [{
 				id: 'home',
 				value: 'Home',
